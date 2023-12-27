@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name         Steam Game Search Links
+// @name         Steam Game Search Links RU edition
 // @namespace    http://tampermonkey.net/
 // @version      1.0
 // @description  Add search links for games on Steam pages
-// @author       Your Name
+// @author       iMAboud , daswer123 ( modified code )
 // @match        https://store.steampowered.com/*
 // @grant        GM_addStyle
 // ==/UserScript==
@@ -16,18 +16,18 @@
         if (gameNameElement) {
             const linkButton = document.createElement("a");
             linkButton.href = searchLink;
-            linkButton.setAttribute("target", "_blank"); 
+            linkButton.setAttribute("target", "_blank");
 
             const img = new Image();
             img.src = iconPath;
             img.alt = buttonText;
-            img.style.width = '64px'; 
-            img.style.height = '32px'; 
+            img.style.width = '64px';
+            img.style.height = '32px';
             img.style.objectFit = 'contain';
 
             linkButton.appendChild(img);
             linkButton.title = tooltipText;
-            linkButton.style.marginRight = '10px'; 
+            linkButton.style.marginRight = '10px';
             gameNameElement.parentNode.appendChild(linkButton);
         }
     }
@@ -37,19 +37,16 @@
     const steamDBSearchLink = `https://online-fix.me/index.php?do=search&subaction=search&story=${formattedGameName}`;
     createButton(steamDBSearchLink, "Online Fix", "Search on Online Fix", "https://i.imgur.com/WAXRAUw.png");
 
-    const site1SearchLink = `https://www.skidrowreloaded.com/?s=${formattedGameName}&x=0&y=0`;
-    createButton(site1SearchLink, "Skidrow", "Search on Skidrow", "https://i.imgur.com/sfzB2DE.png");
+    const site4SearchLink = `https://small-games.info/?go=search&search_text=${formattedGameName}&sort=2`;
+    createButton(site4SearchLink, "Small-games", "Search on Small-Games", "https://small-games.info/logo/logo.12.27.png");
 
-    const site2SearchLink = `https://fitgirl-repacks.site/?s=${formattedGameName}`;
-    createButton(site2SearchLink, "FitGirl", "Search on FitGirl", "https://i.imgur.com/GOFbweI.png");
+    const site1SearchLink = `https://rutracker.org/forum/tracker.php?nm=${formattedGameName}&o=10&s=2`;
+    createButton(site1SearchLink, "Rutracker", "Search on Rutracker", "https://i.imgur.com/UnHvprS.png");
 
-    const newSiteSearchLink = `https://steamrip.com/?s=${formattedGameName}`;
-    createButton(newSiteSearchLink, "SteamRIP", "Search on SteamRIP", "https://i.imgur.com/tmvOT86.png");
+    const site2SearchLink = `https://nnmclub.to/forum/tracker.php?nm=${formattedGameName}&o=10&s=2`;
+    createButton(site2SearchLink, "NnmClub", "Search on NnmClub", "https://i.imgur.com/s8eRrZr.png");
 
-    const new1SiteSearchLink = `https://dodi-repacks.site/?s=${formattedGameName}`;
-    createButton(new1SiteSearchLink, "Dodi", "Search on Dodi", "https://i.imgur.com/g71t1Ge.png");
-
-    const new2SiteSearchLink = `https://gload.to/?s=${formattedGameName}`;
-    createButton(new2SiteSearchLink, "Gload", "Search on Gload", "https://gload.to/logo.png");
+    const site3SearchLink = `http://rutor.info/search/1/0/000/2/${formattedGameName}`;
+    createButton(site3SearchLink, "Rutor", "Search on Rutor", "https://i.imgur.com/MBTI3G4.png");
 
 })();
